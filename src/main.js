@@ -17,6 +17,8 @@ library.add(faTwitter, faFacebook, faInstagram, fas, far)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
+require('@/assets/sass/styles.sass')
+
 /* eslint-disable no-new */
 new Vue({
   render: h => h(App),

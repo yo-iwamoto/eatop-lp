@@ -15,7 +15,7 @@
             @click="openModal">
               <Pin
               v-bind="{pinImg: prop['pinImg'], position: prop['position'], imgAlt: prop['imgAlt'], name: prop['name'], key: key}"
-              @pin-click="postId"
+              @pin-click="postId = $event"
               />
             </div>
           </div>
@@ -54,6 +54,9 @@ export default {
   name: 'logs',
   data () {
     return {
+      postId: 'gurugura',
+      showModal: false,
+      heartActive: false,
       pinProps: [
         {
           pinImg: require('../assets/images/logs/pins/gurugura.png'),
@@ -105,7 +108,6 @@ export default {
         },
         {
           pinImg: require('../assets/images/logs/pins/saitorensai.png'),
-          modalImg: require('../assets/images/logs/events/saitorensai.jpg'),
           position: [66, 43],
           imgAlt: '西都連祭出店  いーとっぷカレー',
           name: 'saitorensai'
@@ -123,8 +125,6 @@ export default {
           name: 'kendo'
         }
       ],
-      postId: 'gurugura',
-      showModal: false,
       postObject: {
         gurugura: {
           postTitle: '',
@@ -181,8 +181,7 @@ export default {
           postImg: require(`../assets/images/logs/events/kendo.jpg`),
           postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         }
-      },
-      heartActive: false
+      }
     }
   },
   components: {

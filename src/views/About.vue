@@ -67,29 +67,24 @@
       </div>
     </section>
     <h2 id="section-title">イベント参加者の声</h2>
-    <section id="voice">
-      <div class="participant">
-        <img src="../assets/images/top/participants/farmer.png" alt="地域の方々">
-        <div id="text-box">
-          <h2 id="farmer">地域の方々</h2>
-          <p>日本の学生や海外からの留学生に農作業体験をしてもらい、お礼に料理を振る舞っています。作業も楽になるし、若者との接点もできて、いいことばかりです。</p>
-        </div>
-      </div>
-      <div class="participant">
-        <img src="../assets/images/top/participants/student.png" alt="地域の方々">
-        <div id="text-box">
-          <h2 id="student">大学生</h2>
-          <p>大人数でご飯を囲むので、餃子や鍋など、一人暮らしだとなかなか食べることがない料理を食べる機会ができます！なにより、みんなで食べるご飯は美味しい！</p>
-        </div>
-      </div>
-      <div class="participant">
-        <img src="../assets/images/top/participants/foreignStudent.png" alt="地域の方々">
-        <div id="text-box">
-          <h2 id="foreignstudent">留学生</h2>
-          <p>イベントの中で日本人と、日本の食文化のことだけでなく、自分の国の料理についても話せる。食文化以外の色々な体験ができるのも嬉しい！</p>
-        </div>
-      </div>
-    </section>
+    <div class="voice">
+      <img src="../assets/images/top/participants/farmer.png" alt="参加者">
+      <balloon info="農家 60代" bgColor="#c1e396" title="若者との大事なつながり">
+        <p class="comment">日本の学生や海外からの留学生に農作業体験をしてもらい、お礼に料理を振る舞っています。作業も楽になるし、<span>若者との接点もできて</span>、いいことばかりです。</p>
+      </balloon>
+    </div>
+    <div class="voice" id="voiceSecond">
+      <img src="../assets/images/top/participants/student.png" alt="参加者">
+      <balloon info="大学生 20代" bgColor="#ffc1ae" direction="true" title="色んな料理が食べられる！">
+        <p class="comment">大人数でご飯を囲むので、餃子や鍋など、一人暮らしだとなかなか食べることがない料理を食べる機会ができます！なにより、<span>みんなで食べるご飯は美味しい！</span></p>
+      </balloon>
+    </div>
+    <div class="voice">
+      <img src="../assets/images/top/participants/foreignStudent.png" alt="参加者">
+      <balloon info="留学生 20代" bgColor=" #b5d2ff" title="日本の文化の体験ができる">
+        <p class="comment">イベントの中で日本人と、日本の食文化のことだけでなく、自分の国の料理についても話せる。<span>食文化以外の色々な体験</span>ができるのも嬉しい！</p>
+      </balloon>
+    </div>
     <h1 id="title">サポーター</h1>
     <section id="partners">
       <div class="partner">
@@ -109,8 +104,12 @@
 </template>
 
 <script>
+import Balloon from '@/components/Balloon'
+
 export default {
-  name: 'about'
+  components: {
+    Balloon
+  }
 }
 </script>
 
@@ -235,60 +234,37 @@ body {
   position: relative;
 }
 
-#voice {
+#voices img {
+  height: 125px;
+}
+
+#voices {
+  margin: 0 80px;
+}
+
+@media (max-width: 1100px) {
+  #voices {
+    margin: 0;
+  }
+}
+
+#voices h3 {
+  margin-bottom: 40px;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.voice {
   display: flex;
-  justify-content: space-around;
-}
-
-#text-box {
-  text-align: center;
-  background: #fff;
-  border-radius: 15px;
-}
-
-.participant {
-  display: flex;
-  width: 30%;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 20px 50px;
-}
-
-.participant > img {
-  width: 80%;
-  margin-bottom: 20px;
-}
-
-#text-box > h2 {
-  padding: 5px 0;
-  font-size: 20px;
-  color: #fff;
-  border-radius: 15px 15px 0 0;
-}
-
-#farmer {
-  background: #c1e396;
-}
-
-#student {
-  background: #ffc1ae;
-}
-
-#foreignstudent {
-  background: #b5d2ff;
-}
-
-#text-box > p {
-  font-size: 15px;
-  opacity: .9;
-  padding: 15px;
-}
-
-#partners {
-  height: 100px;
-  display: flex;
-  justify-content: space-around;
   align-items: flex-start;
+  margin: 20px;
 }
 
+#voiceSecond {
+  flex-direction: row-reverse;
+}
+
+#second:first-child {
+  margin-right: 0;
+}
 </style>

@@ -15,10 +15,9 @@ export default {
 }
 </script>
 
-<style scoped>
-#wrapper {
-  height: 80vh;
-  text-align: center;
+<style scoped lang="sass">
+#wrapper
+  height: 80vh
+  text-align: center
   font-family: 'Nasu'
-}
 </style>
