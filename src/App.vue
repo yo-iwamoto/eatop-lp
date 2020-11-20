@@ -1,46 +1,44 @@
 <template>
   <div id="app">
-    <div class="header-wrapper">
-      <header>
-        <img src="@/assets/images/top/eatop.png" alt="いーとっぷ" id="logo" @click="toTop">
+    <div class="header-back">
+      <div class="header">
+        <img src="./assets/images/top/eatop.png" alt="EATOP" class="header-logo" @click="toTop">
         <nav>
-          <router-link to="/about" class="link" id="cursor-about">EATOPとは</router-link>
-          <router-link to="/event" class="link" id="cursor-event">イベント情報</router-link>
-          <router-link to="/logs" class="link" id="cursor-logs">活動実績</router-link>
+          <router-link to="/about" class="header-link" id="cursor-about">EATOPとは</router-link>
+          <router-link to="/event" class="header-link" id="cursor-event">イベント情報</router-link>
+          <router-link to="/logs" class="header-link" id="cursor-logs">活動実績</router-link>
           <a href="https://lin.ee/1QVJQLx"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" id="line"></a>
         </nav>
-      </header>
+      </div>
     </div>
     <transition name="fade" mode="out-in" @before-enter="beforeEnter">
       <router-view/>
     </transition>
-    <footer>
-      <div id="footer-wrapper">
-        <div id="footer-left">
-          <img id="footer-icon" src="@/assets/images/top/icon.png" alt="いーとっぷろご">
+    <div class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <img class="footer-icon" src="@/assets/images/top/icon.png" alt="EATOP">
         </div>
-        <div id="footer-right">
-          <div id="footer-right-top">
-            <div id="first" @click="toTop"><img src="@/assets/images/top/eatop.png" alt="いーとっぷ" id="footer-logo"></div>
-            <div id="flexmenu">
+        <div class="footer-right">
+          <div class="footer-right-top">
+            <img src="./assets/images/top/eatop.png" alt="EATOP" class="footer-logo" @click="toTop">
+            <nav>
               <a href="https://twitter.com/Eatop_musha"><font-awesome-icon :icon="['fab', 'twitter']" class="sns-icon" /></a>
               <a href="https://www.facebook.com/mushamusha.eatop"><font-awesome-icon :icon="['fab', 'facebook']" class="sns-icon" /></a>
               <a href="https://www.instagram.com/mushamushaeatop/"><font-awesome-icon :icon="['fab', 'instagram']" class="sns-icon" /></a>
-            </div>
+            </nav>
           </div>
-          <div id="footer-right-bottom">
-            <router-link to="" class="link2">コロナ対策について</router-link>
-            <router-link to="" class="link2 footer-link">お問い合わせ</router-link>
-            <router-link to="" class="link2">EN</router-link>
-            <a class="link2">/</a>
-            <router-link to="" class="link2">JP</router-link>
+          <div class="footer-right-bottom">
+            <nav>
+              <router-link to="" class="footer-link">コロナ対策について</router-link>
+              <router-link to="" class="footer-link">お問い合わせ</router-link>
+              <router-link to="" class="footer-link">ENGLISH</router-link>
+            </nav>
           </div>
         </div>
       </div>
-      <div id="copyright">
-        <a>Copyright © Eatop All rights reserved.</a>
-      </div>
-    </footer>
+      <p class="copyright">Copyright © Eatop All rights reserved.</p>
+    </div>
   </div>
 </template>
 
@@ -61,186 +59,126 @@ export default {
 }
 </script>
 
-<style>
-html {
-  background-image: url(./assets/images/top/background.jpg);
-  background-size: contain;
-}
+<style scoped lang="sass">
+@import './assets/sass/styles.sass';
 
-body {
-  font-family: 'Nasu';
-  margin: 0;
-  width: 100%;
-}
+#app
+  background: url(./assets/images/top/background.jpg)
+  background-size: contain
 
-.header-wrapper {
-  height: 78px;
-}
+.header-back
+  height: 78px
 
-header {
-  position: fixed;
-  z-index: 900;
-  box-sizing: border-box;
-  padding: 12px 20px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background: linear-gradient(rgba(255,245,241,0.8) 0%, rgba(255,245,241,0.8) 95%, rgba(255,245,241,0) 100%)
-}
+  .header
+    width: 100%
+    height: 78px
+    position: fixed
+    z-index: 900
+    padding: 0 20px
+    display: flex
+    justify-content: space-between
+    flex-wrap: nowrap
+    background: linear-gradient(rgba(255,245,241,0.8) 0%, rgba(255,245,241,0.8) 95%, rgba(255,245,241,0) 100%)
+    
+    &-logo
+      cursor: pointer
+      padding: 20px 0
 
-#logo {
-  margin: auto 0;
-  cursor: pointer;
-  padding: 10px;
-}
+    &-link
+      box-sizing: content-box
+      display: inline-block
+      font-size: 18px
+      text-decoration: none
+      margin-right: 1em
+      padding: 5px
+      color: $gray
+      border-bottom: 2px solid transparent
+      transition: border-color .2s, text-shadow .2s
 
-.link {
-  text-decoration: none;
-  color: black;
-  padding: 20px 15px;
-  display: inline-block;
-}
+      &:hover
+        text-shadow: .1px .1px 0 $gray
+      
+      &#cursor
 
-.link:hover {
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 190, 190, 0.3) 0%, rgba(255, 190, 190, 0.2) 58%, rgba(255, 190, 190, 0) 100%);
-}
+        &-about:hover
+          border-color: $brown
 
-nav {
-  display: flex;
-  justify-content: space-between;
-}
+        &-event:hover
+          border-color: $lightgreen
 
-#line {
-  height: 30px;
-  padding-top: 13px;
-  cursor: url(./app/line_brown.png), auto;
-}
+        &-logs:hover
+          border-color: $blue
 
-#cursor-about {
-  cursor: url(./app/about_meat.png), auto;
-}
+    nav
+      display: flex
+      justify-content: space-between
+      align-items: center
+      flex-wrap: nowrap
+      
+      #line
+        height: 40px
+        transform: translateY(3px)
+        cursor: url(./assets/app/line_brown.png), default
 
-#cursor-event {
-cursor: url(./app/event_vegit.png), auto;
-}
+#cursor
 
-#cursor-logs {
-  cursor: url(./app/logs_fish.png), auto;
-}
+  &-about
+    cursor: url(./assets/app/about_meat.png), default
 
-footer {
-  width: 100%;
-}
+  &-event
+    cursor: url(./assets/app/event_vegit.png), default
 
-#footer-wrapper {
-  margin: 100px 100px 0;
-}
+  &-logs
+    cursor: url(./assets/app/logs_fish.png), default
 
-#footer-left {
-  float: left;
-  width: 30%;
-}
+.footer
+  
+  &-container
+    width: 90%
+    max-width: 850px
+    margin: 100px auto 0
+    display: flex
+    justify-content: space-between
+    align-content: center
+  
+  &-icon
+    height: 200px
 
-#footer-icon {
-  height: 200px;
-}
+  &-link
+    font-size: 15px
+    display: inline-block
 
-#footer-right {
-  float: right;
-  width: 70%;
-}
+  &-right
+    width: 70%
+    max-width: 550px
+    min-width: 90px
 
-#footer-right-top {
-  min-width: 450px;
-  max-width: 90%;
-  height: 100px;
-  border-bottom: solid 1px #555;
-  display: flex;
-  align-items: flex-end;
-  padding: 0 15px 15px;
-}
+    &-top
+      height: 100px
+      padding: 0 20px 15px
+      border-bottom: solid 1px $gray
+      display: flex
+      justify-content: space-between
+      align-items: flex-end
 
-#first {
-  margin-left: 20px;
-  margin-right: auto;
-  cursor: pointer;
-}
+      nav
+        display: flex
+        justify-content: space-between
+        align-items: center
 
-#flexmenu {
-  margin-right: 20px;
-  display: flex;
-  justify-content: flex-end;
-}
+        .sns-icon
+          color: #333
+          font-size: 2em
+          margin-left: 3vw
 
-#footer-right-bottom {
-  min-width: 450px;
-  max-width: 90%;
-  height: 100px;
-  padding: 15px 15px 0px;
-  display: flex;
-  justify-content: center;
-}
+    &-bottom
+      margin-top: 20px
 
-#copyright {
-  width: 100%;
-}
+@media (max-width: $breakpoint-sm)
+  body
+    text-align: center
 
-#copyright a {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.sns-icon {
-  color: #333;
-  font-size: 2em;
-  margin-left: 15px;
-}
-
-.link2 {
-  font-size: 15px;
-  text-decoration: none;
-  color: black;
-  display: inline-block;
-}
-
-.footer-link {
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-.link2:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-#id {
-  height: 70%;
-}
-
-@media (max-width: 800px) {
-  #footer-wrapper {
-    margin: 50px 50px;
-  }
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .2s;
-}
-
-@media (max-width: 650px) {
-  #footer-icon {
-    height: 130px;
-  }
-  #footer-left {
-    padding-top: 25px;
-    vertical-align: center;
-  }
-}
+@media (min-width: $breakpoint-lg)
+  .footer-container
+    justify-content: space-around
 </style>
