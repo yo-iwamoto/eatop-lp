@@ -199,14 +199,6 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-to {
-  transition: opacity .3s;
-}
 
 * {
   font-family: 'Nasu';
