@@ -112,13 +112,15 @@ export default {
 
   &-text
     color: $gray
-    font-size: 20px
+    font-size: 18px
     line-height: 40px
     padding: 20px
     
 .map-container
   height: 60vw
   width: 90vw
+  max-height: 600px
+  max-width: 1000px
   margin: 0 auto
   background: url(../assets/images/top/active_map.png)
   background-repeat: no-repeat
@@ -132,7 +134,7 @@ export default {
     align-items: center
     justify-content: space-between
     height: 200px
-    margin: 230px auto 0
+    margin: 20vw auto 0
 
     h2
       font-size: 24px
@@ -164,9 +166,17 @@ export default {
   .mv
 
     &-container
-      height: 650px
+      height: 600px
+
+  .top-about-text
+    font-size: 20px
       
-  .map-container
-    height: 40vw
+  .map
+
+    &-container
+    height: 35vw
     width: 60vw
+
+    &-contents
+
 </style>

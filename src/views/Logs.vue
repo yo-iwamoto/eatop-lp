@@ -1,38 +1,39 @@
 <template>
-  <div id="logs">
-    <transition name="fade" mode="out-in">
+  <div class="logs-wrapper">
+    <transition name="fade" mode="out-in" appear>
       <div>
-        <div id="title">
+        <div class="logs-guide">
           <h1>EATOP活動マップ</h1>
           <p>これまでEATOPが行ってきた活動のうちいくつかを紹介しています
-          <br>クリックすると、詳しい情報が見られます</p>
+            <br>クリックすると、詳しい情報が見られます
+          </p>
         </div>
-        <div id="map">
-          <div v-for="(prop, key) in pinProps" :key="key">
-            <div
-            :key="key"
-            id="show-modal"
-            @click="openModal">
-              <Pin
-              v-bind="{pinImg: prop['pinImg'], position: prop['position'], imgAlt: prop['imgAlt'], name: prop['name'], key: key}"
-              @pin-click="postId = $event"
-              />
-            </div>
+        <div class="map">
+          <!-- eslint-disable-next-line vue/require-v-for-key -->
+          <div
+          v-for="(prop, key) in pinProps"
+          id="show-modal"
+          @click="openModal"
+          v-bind="{ key: key, style: coordinate(prop['position'])}"
+          >
+            <Pin
+            v-bind="{ imgAlt: prop['title'], name: prop['name'], key: key}"
+            @pin-click="postId = $event"
+            />
           </div>
           <Post v-if="showModal" @close="showModal = false">
             <template v-slot:title>
-              <h3 id="post-title">{{ postObject[postId].postTitle }}</h3>
+              <h3 class="post-title">{{ postObjects[postId].postTitle }}</h3>
             </template>
             <template v-slot:contents>
-              <img :src="postObject[postId].postImg" id="post-img">
+              <img :src="postObjects[postId].postImg" class="post-img">
               <div class="icon-bar">
                 <font-awesome-icon v-if="heartActive" class="fa-icon heart" :icon="['far', 'heart']" @click="heartActive = !heartActive"></font-awesome-icon>
                 <font-awesome-icon v-else class="fa-icon heart heart-active" :icon="['fas', 'heart']" @click="heartActive = !heartActive"></font-awesome-icon>
                 <font-awesome-icon class="fa-icon" :icon="['far', 'comment']"></font-awesome-icon>
                 <font-awesome-icon class="fa-icon" :icon="['fas', 'paper-plane']"></font-awesome-icon>
               </div>
-              <!-- eslint-disable-next-line no-irregular-whitespace -->
-              <p><span class="bold">eatop</span>　{{ postObject[postId].postText }}</p>
+              <p class="post-text"><span class="bold">eatop</span>{{ postObjects[postId].postText }}</p>
             </template>
           </Post>
         </div>
@@ -59,87 +60,76 @@ export default {
       heartActive: false,
       pinProps: [
         {
-          pinImg: require('../assets/images/logs/pins/gurugura.png'),
           position: [30, 35],
-          imgAlt: '糸島グルメグランプリ',
+          title: '糸島グルメグランプリ',
           name: 'gurugura'
         },
         {
-          pinImg: require('../assets/images/logs/pins/hiho.png'),
           position: [39, 57],
-          imgAlt: '前原町の居酒屋Hihoの運営',
+          title: '前原町の居酒屋Hihoの運営',
           name: 'hiho'
         },
         {
-          pinImg: require('../assets/images/logs/pins/imari.png'),
           position: [8, 25],
-          imgAlt: '伊万里田植え体験',
+          title: '伊万里田植え体験',
           name: 'imari'
         },
         {
-          pinImg: require('../assets/images/logs/pins/kyudaisai.png'),
           position: [50, 24],
-          imgAlt: '九大祭出店  いーとっぷカレー',
+          title: '九大祭出店  いーとっぷカレー',
           name: 'kyudaisai'
         },
         {
-          pinImg: require('../assets/images/logs/pins/pietro.png'),
           position: [86, 70],
-          imgAlt: 'ピエトロ共同商品開発',
+          title: 'ピエトロ共同商品開発',
           name: 'pietro'
         },
         {
-          pinImg: require('../assets/images/logs/pins/qshock.png'),
           position: [42, 60],
-          imgAlt: 'Q-SHOCK  中学生 & 留学生と英語でランチ',
+          title: 'Q-SHOCK  中学生 & 留学生と英語でランチ',
           name: 'qshock'
         },
         {
-          pinImg: require('../assets/images/logs/pins/sabameshi.png'),
           position: [75, 65],
-          imgAlt: 'サバイバル飯キャンプ',
+          title: 'サバイバル飯キャンプ',
           name: 'sabameshi'
         },
         {
-          pinImg: require('../assets/images/logs/pins/saito.png'),
           position: [68, 47],
-          imgAlt: 'バレンタインお菓子づくり in さいとぴあ',
+          title: 'バレンタインお菓子づくり in さいとぴあ',
           name: 'saito'
         },
         {
-          pinImg: require('../assets/images/logs/pins/saitorensai.png'),
           position: [66, 43],
-          imgAlt: '西都連祭出店  いーとっぷカレー',
+          title: '西都連祭出店  いーとっぷカレー',
           name: 'saitorensai'
         },
         {
-          pinImg: require('../assets/images/logs/pins/tofu.png'),
           position: [53, 18],
-          imgAlt: 'またいちの塩で豆腐作り',
+          title: 'またいちの塩で豆腐作り',
           name: 'tofu'
         },
         {
-          pinImg: require('../assets/images/logs/pins/kendo.png'),
           position: [60, 30],
-          imgAlt: '留学生の剣道 & 和食体験',
+          title: '留学生の剣道 & 和食体験',
           name: 'kendo'
         }
       ],
-      postObject: {
+      postObjects: {
         gurugura: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/gurugura.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         hiho: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/hiho.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         imari: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/imari.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         kyudaisai: {
           postTitle: '',
@@ -149,37 +139,37 @@ export default {
         pietro: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/pietro.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         qshock: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/qshock.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         sabameshi: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/sabameshi.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         saito: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/saito.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         saitorensai: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/saitorensai.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         tofu: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/tofu.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         },
         kendo: {
           postTitle: '',
           postImg: require(`../assets/images/logs/events/kendo.jpg`),
-          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
+          postText: 'ここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入りますここに文章が入ります'
         }
       }
     }
@@ -192,106 +182,75 @@ export default {
     openModal (event) {
       this.showModal = true
       this.heartActive = true
-      this.postObject[this.postId].postTitle = event.target.alt
+      this.postObjects[this.postId].postTitle = event.target.alt
+    },
+    coordinate (list) {
+      return {
+        '--x': list[0] + '%',
+        '--y': list[1] + '%'
+      }
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+@import '../assets/sass/styles.sass';
 
-* {
-  font-family: 'Nasu';
-  font-weight: normal;
-  margin: 0;
-}
+.logs-guide
+  padding: 40px 0
 
-#logs {
-  height: 900px;
-}
-@media (min-width: 840px) {
-  #logs {
-    height: 1000px;
-  }
-}
+  h1
+    margin-bottom: 10px
+    &::before,
+    &::after
+      content: '～'
+      font-size: 25px
 
-#title {
-  text-align: center;
-  padding: 40px 0;
-  margin: 0;
-}
+  p
+    color: $gray
 
-#title > h1 {
-  margin-bottom: 10px;
-}
+.map
+  width: 100%
+  background: url(../assets/images/logs/map.png)
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+  position: relative
 
-#title > p {
-  color: '#c1e396',rgba(0,0,0,0.8);
-}
+  &::before
+    display: block
+    content: ''
+    padding-top: 50%
 
-#title > h1::before,
-#title > h1::after {
-  content: '～';
-  font-size: 25px;
-}
+#show-modal
+  display: inline-block
+  cursor: pointer
+  position: absolute
+  top: var(--y)
+  left: var(--x)
 
-button {
-  cursor: pointer;
-}
+.post
 
-#show-modal {
-  cursor: pointer;
-}
+  &-title
+    font-size: 1.3em
 
-#map {
-  box-sizing: border-box;
-  width: 100%;
-  height: 800px;
-  background-image: url(../assets/images/logs/map.png);
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-size: contain;
-  position: relative;
-}
+  &-img
+    height: 300px
 
-#post-img {
-  width: 100%;
-  box-shadow: inset 0 0 5px 5px #fff5f1;
-}
+  &-text
+    text-align: left
 
-.fa-icon {
-  font-size: 25px;
-  margin-right: 10px;
-  transition: all .15s;
-}
+    .bold
+      font-weight: bold
+      margin-right: 15px
 
-.heart-active {
-  color: rgb(226, 66, 93);
-}
+.icon-bar
+  text-align: left
+  border-bottom: 2px solid $gray
 
-.heart:hover {
-  cursor: pointer;
-}
-
-.heart:active {
-  padding-bottom: 13px;
-}
-
-.icon-bar {
-  border-bottom: 2px solid black;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-@media (min-width: 1800px) {
-  #map {
-    display: none;
-  }
-}
+@media (min-width: $breakpoint-lg)
+  .map
+    width: 80%
+    margin: 0 auto
 </style>

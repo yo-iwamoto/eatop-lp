@@ -74,10 +74,6 @@
   padding: 10px 20px;
 }
 
-.modal-body > img {
-  height: 50px;
-}
-
 .modal-default-button {
   cursor: pointer;
   float: right;

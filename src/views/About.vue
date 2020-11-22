@@ -1,270 +1,199 @@
 <template>
-  <div id="wrapper">
+  <div class="about-wrapper">
     <transition name="fade">
-      <div id="about-mv"></div>
+      <div class="about-mv"></div>
     </transition>
-    <section id="introduction">
-      <br><br>
-      <h1 id="about-title">共に作り、共に食べる</h1>
-      <div id="description">
-        <h3>EATOPの目的</h3>
-        <p>ライフスタイルの急激な変化で<br>かつての「誰かとご飯を食べる」という＜共食＞の概念はくずれ、
-        <br>一人でご飯を食べる＜孤食＞が広まりつつあります。
-        <br>本来食事の場は、たくさんの会話が交わされる、
-        <br>感情にあふれた、互いに学び合える場所でした。
-        <br>そうした場所が失われそうな今だからこそ、
-        <br>もう一度<span class="highlight">コミュニケーションとしての＜共食＞</span>を大切にしたい。
-        <br>そんな思いで、2018年6月から、この活動は始まりました。<br>
-        <br>この活動で目指しているのは、「共に作り、共に食べる」ができる、環境作り。<br>では、このEATOPの活動で、誰と誰が「共に作り、食べる」環境を作るのか。</p>
-        <br>
-        <h3>登場人物は3人です。</h3>
-        <p>1人目は、この土地の「食の魅力」をしらない大学生。<br>2人目は、学生とは、繋がりがなかなか生まれない地域の方。<br>3人目は、九州大学（日本）に来てくれた留学生。<br>この三者が、
-        <br>「食べる」というコミュニケーションを通して紡ぎ出す物語を楽しみに
-        <br>EATOPは活動しています。</p>
-        <br>
-        <p>「糸島」は豊かな食の宝庫。<br>この場所にあるものの「価値」を存分に生かして。<br>普段あまり交わらないもの同士。<br><span class="highlight">美味しい食事を、みんなで美しく作って、食べる。</span></p>
+    <section class="about-main">
+      <h1 class="about-main-title">共に作り、共に食べる</h1>
+      <h3 class="about-main-subtitle">EATOPの目的</h3>
+      <div class="text-box top">
+        <p>ライフスタイルの急激な変化で
+          <br>かつての、「誰かとご飯を食べる」という＜共食＞の機会は次第になくなり
+          <br>一人でご飯を食べる＜孤食＞が広まりつつあります
+        </p>
+        <p>本来食事の場は、感情にあふれ、
+          <br>たくさんの会話が交わされる、互いに学び合える場所でした
+          <br>そうした場所が失われそうな今だからこそ、
+          <br>もう一度、コミュニケーションとしての＜共食＞を大切にしたい
+          <br>そんな思いで、2018年6月から、この活動は始まりました
+        </p>
+        <p>この活動で目指しているのは、「共に作り、共に食べる」ができる、環境作り
+          <br>では、このEATOPの活動では、誰と誰が「共に作り、食べる」のか
+        </p>
+      </div>
+      <h3 class="about-main-subtitle">登場人物は3人です</h3>
+      <div class="text-box bottom">
+        <p>1人目は、この土地の食の魅力を知らない大学生
+          <br>2人目は、学生との繋がりがなかなか生まれない地域の方
+          <br>3人目は、九州大学、日本に来てくれた留学生
+          <br>この三者が、「食べる」というコミュニケーションを通して
+          <br>紡ぎ出す物語を楽しみに、EATOPは活動しています
+        </p>
+        <p>「糸島」は豊かな食の宝庫
+          <br>この場所にあるものの「価値」を存分に生かして
+          <br>普段あまり交わらないもの同士
+          <br>美味しい食事を、みんなで美しく作って、食べる
+        </p>
       </div>
     </section>
-    <section id="members">
-      <div id="tanaka">
-        <div id="tanaka-left">
-          <div id="tanaka-profile">
-            <h3>代表</h3>
-            <h2>田中  稀ひろ</h2>
-            <h4 class="spacing">TANAKA KIHIRO</h4>
-            <h4>九州大学 共創学部3年 2代目代表</h4>
+    <section class="members">
+      <div class="rep-container">
+        <img src="../assets/images/about/tanaka.png" alt="田中 稀ひろ" class="rep img">
+        <div class="rep profile">
+          <div class="rep profile-info">
+            <h3>EATOP 代表</h3>
+            <h2>田中 稀ひろ</h2>
+            <p>TANAKA KIHIRO</p>
+            <p>●九州大学 共創学部3年
+              <br>●2020年4月より代表を務める</p>
           </div>
-          <div id="tanaka-balloon">
+          <div class="rep profile-comment">
             <p>アットホームで居心地のいい空間作りのできる
-            <br>EATOPの仲間と活動を誇りに思っています。
-            <br>今年は新型コロナウイルス感染症拡大の影響で
-            <br>思うように活動ができていない面も多いですが
-            <br>今後もこの活動を広げていくために代表を務め上げたいです！</p>
+              <br>EATOPの仲間と活動を誇りに思っています
+              <br>今年は新型コロナウイルス感染症拡大の影響で
+              <br>思うように活動ができていない面も多いですが
+              <br>今後もこの活動を広げていくために代表を務め上げたいです！
+            </p>
           </div>
-        </div>
-        <div id="tanaka-right">
-          <img src="../assets/images/about/tanaka.png" alt="田中 稀ひろ" id="tanaka-img">
         </div>
       </div>
-      <div id="sasazu">
-        <div id="sasazu-left">
-          <img src="../assets/images/about/sasazu.png" alt="笹津 敏靖" id="sasazu-img">
-        </div>
-        <div id="sasazu-right">
-          <div id="sasazu-profile">
+      <div class="founder-container">
+        <img src="../assets/images/about/sasazu.png" alt="笹津 敏靖" class="founder img">
+        <div class="founder profile">
+          <div class="founder profile-info">
             <h3>創設者</h3>
-            <h2>笹津  敏靖</h2>
-            <h4 class="spacing">SASAZU TOSHINOBU</h4>
-            <h4>九州大学 21世紀プログラム学科4年 2018年6月にEATOPを創設</h4>
+            <h2>笹津 敏靖</h2>
+            <p>SASAZU TOSHINOBU</p>
+            <p>●九州大学 21世紀プログラム学科4年
+              <br>●2018年6月 EATOPを創設</p>
           </div>
-          <div id="sasazu-balloon">
+          <div class="founder profile-comment">
             <p>「ただいま」って言える場所は
-            <br>必ずしも実家じゃなくてもいいんじゃないかなと。
-            <br>大勢で囲って食べることができる食卓こそ
-            <br>万国共通の最高の「帰る場所」だと思うんですよね。</p>
+              <br>必ずしも実家じゃなくてもいいんじゃないかなと
+              <br>大勢で囲って食べることができる食卓こそ
+              <br>万国共通の最高の「帰る場所」だと思うんですよね
+            </p>
           </div>
         </div>
       </div>
     </section>
-    <h2 id="section-title">イベント参加者の声</h2>
-    <div class="voice">
-      <img src="../assets/images/top/participants/farmer.png" alt="参加者">
-      <balloon info="農家 60代" bgColor="#c1e396" title="若者との大事なつながり">
-        <p class="comment">日本の学生や海外からの留学生に農作業体験をしてもらい、お礼に料理を振る舞っています。作業も楽になるし、<span>若者との接点もできて</span>、いいことばかりです。</p>
-      </balloon>
-    </div>
-    <div class="voice" id="voiceSecond">
-      <img src="../assets/images/top/participants/student.png" alt="参加者">
-      <balloon info="大学生 20代" bgColor="#ffc1ae" direction="true" title="色んな料理が食べられる！">
-        <p class="comment">大人数でご飯を囲むので、餃子や鍋など、一人暮らしだとなかなか食べることがない料理を食べる機会ができます！なにより、<span>みんなで食べるご飯は美味しい！</span></p>
-      </balloon>
-    </div>
-    <div class="voice">
-      <img src="../assets/images/top/participants/foreignStudent.png" alt="参加者">
-      <balloon info="留学生 20代" bgColor=" #b5d2ff" title="日本の文化の体験ができる">
-        <p class="comment">イベントの中で日本人と、日本の食文化のことだけでなく、自分の国の料理についても話せる。<span>食文化以外の色々な体験</span>ができるのも嬉しい！</p>
-      </balloon>
-    </div>
-    <h1 id="title">サポーター</h1>
-    <section id="partners">
-      <div class="partner">
-        <img src="" alt="">
-        <p>COMING SOON!!</p>
+    <section class="reviews">
+      <h2>イベント参加者の声</h2>
+      <div class="review-wrapper">
+        <div class="review">
+          
+        </div>
+        <div class="review">
+
+        </div>
+        <div class="review">
+
+        </div>
       </div>
-      <div class="partner">
-        <img src="" alt="">
-        <p>COMING SOON!!</p>
-      </div>
-      <div class="partner">
-        <img src="" alt="">
-        <p>COMING SOON!!</p>
-      </div>
+    </section>
+    <section class="supporter">
+
     </section>
   </div>
 </template>
 
 <script>
-import Balloon from '@/components/Balloon'
+// import Balloon from '@/components/Balloon'
 
 export default {
-  components: {
-    Balloon
-  }
+  // components: {
+  //   Balloon
+  // }
 }
 </script>
 
-<style scoped>
-* {
-  box-sizing: border-box;
-}
+<style scoped lang="sass">
+@import '../assets/sass/styles.sass';
 
-#tanaka-img,
-#sasazu-img {
-  width: 100%;
-}
-
-#tanaka-right,
-#sasazu-left {
-  width: 35%;
-}
-
-#tanaka-right {
-  float: right;
-}
-
-#sasazu-right {
-  float: right;
-}
-
-#tanaka-left,
-#sasazu-right {
-  width: 65%;
-  background: #fff;
-}
-
-.highlight {
+.highlight
   background: linear-gradient(transparent 70%,#FFC1AE 90%)
-}
 
-.fade-enter {
-  opacity: 0;
-}
+.about
 
-.fade-enter-active {
-  transition: opacity 1.8s;
-}
+  &-mv
+    margin: 0 auto
+    height: 500px
+    width: 90%
+    background: url(../assets/images/about/slider1.png)
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    box-shadow: inset 0 0 5px 5px $beige
 
-* {
-  font-family: 'Nasu';
-  font-weight: normal;
-  margin: 0;
-}
+  &-main
+    margin: 40px auto 70px
+    width: 80vw
+    max-width: 1000px
+    min-width: 700px
 
-body {
-  text-align: center;
-}
+    &-title
+      font-size: 30px
+      letter-spacing: 5px
+      padding-bottom: 10px
 
-#about-mv {
-  margin: 0 auto;
-  height: 500px;
-  width: 90%;
-  background-image: url(../assets/images/about/slider1.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  box-shadow: inset 0 0 5px 5px #fff5f1;
-}
+      &::before
+        content: '「'
 
-@media (min-width: 1400px) {
-    #about-mv {
-        height: 650px;
-    }
-}
+      &::after
+        content: '」'
 
-#introduction {
-  margin: 40px 0 70px;
-}
+    &-subtitle
+      font-size: 24px
+      margin: 25px 0
 
-#about-title {
-  font-size: 30px;
-  margin-bottom: 30px;
-  letter-spacing: 5px;
-  text-align: center;
-}
+    .text-box
+      padding: 15px 20px
+      text-align: left
 
-#about-title::before {
-  content: '「'
-}
+      p
+        padding: 10px 0
+        font-size: 18px
+        color: $gray
 
-#about-title::after {
-  content: '」'
-}
+      &.top
+        margin-right: auto
+        width: 670px
 
-#description {
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 20px;
-  line-height: 40px;
-  text-align: center;
-}
+      &.bottom
+        margin-left: auto
+        width: 530px
+        
+.members
+  padding: 0 30px
+  margin: 0 auto
+  text-align: left
+  max-width: 800px
 
-#description h3 {
-  color: #55a740;
-}
 
-@media (min-width: 1000px) {
-  #members,
-  #partners,
-  #voice {
-    width: 1000px;
-    margin: 0 auto;
-  }
-}
+  .profile-comment
+    padding: 20px 0
 
-#title {
-  font-size: 30px;
-  margin: 50px 0;
-  letter-spacing: 5px;
-  text-align: center;
-}
+  .rep
+    
+    
+    &.img
+  
+    &.profile
+    
 
-#section-title {
-  text-align: center;
-  width: 250px;
-  margin: 50px auto;
-  position: relative;
-}
+  .founder-container
+    margin: 50px 0
 
-#voices img {
-  height: 125px;
-}
+  .founder
 
-#voices {
-  margin: 0 80px;
-}
+    &.img
 
-@media (max-width: 1100px) {
-  #voices {
-    margin: 0;
-  }
-}
+    &.profile
 
-#voices h3 {
-  margin-bottom: 40px;
-  font-size: 22px;
-  letter-spacing: 3px;
-}
+@media (min-width: $breakpoint-lg)
+  .members
+    max-width: 1000px
 
-.voice {
-  display: flex;
-  align-items: flex-start;
-  margin: 20px;
-}
-
-#voiceSecond {
-  flex-direction: row-reverse;
-}
-
-#second:first-child {
-  margin-right: 0;
-}
+    .img
+      width: 300px
 </style>

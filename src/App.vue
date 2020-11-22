@@ -148,6 +148,9 @@ export default {
     font-size: 15px
     display: inline-block
 
+  &-logo
+    cursor: pointer
+
   &-right
     width: 70%
     max-width: 550px
@@ -173,6 +176,14 @@ export default {
 
     &-bottom
       margin-top: 20px
+
+      .footer-link
+        text-decoration: none
+        color: $gray
+        margin: 0 15px
+
+        &:hover
+          border-bottom: 1px solid black
 
 @media (max-width: $breakpoint-sm)
   body

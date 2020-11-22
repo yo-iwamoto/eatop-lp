@@ -1,29 +1,17 @@
 <template>
-  <div>
-    <img
-    v-bind="{ src: pinImg, style: coordinate, alt: imgAlt }"
-    @click="emit"
-    >
-  </div>
+    <img v-bind="{ src: pinSrc, alt: imgAlt }" @click="emit">
 </template>
 
 <script>
 export default {
   props: {
     pinImg: {},
-    position: {
-      required: true,
-      default: [0, 0]
-    },
     imgAlt: {},
     name: {}
   },
   computed: {
-    coordinate () {
-      return {
-        '--x': this.position[0] + '%',
-        '--y': this.position[1] * 0.53 + '%'
-      }
+    pinSrc () {
+      return require(`../assets/images/logs/pins/${this.name}.png`)
     }
   },
   methods: {
@@ -34,20 +22,13 @@ export default {
 }
 </script>
 
-<style scoped>
-div img {
-  height: 50px;
-  z-index: 2;
-  margin-top: var(--y);
-  margin-left: var(--x);
-  transition: all .2s;
-  position: absolute;
-}
+<style scoped lang="sass">
+img
+  height: 50px
+  transition: transform .2s
+  transform-origin: bottom center
 
-div img:hover {
-  height: 120px;
-  margin-top: calc(var(--y) - 70px);
-  margin-left: calc(var(--x) - 22px);
-  z-index: 5;
-}
+  &:hover
+    transform: scale(2)
+    transform-origin: bottom center
 </style>

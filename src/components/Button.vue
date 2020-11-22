@@ -13,21 +13,24 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import '../assets/sass/styles.sass';
+
 button
-    background: #ffccccb9
+    background: $red
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25)
     margin: 20px 0
     width: 250px
     height: 50px
     border: none
     border-radius: 25px
+    opacity: .5
     font-size: 20px
     color: #ffffff
-    transition: background .2s, transform .05s, box-shadow .05s
+    transition: opacity .2s, transform .05s, box-shadow .05s
     &:hover
-        background: #ffc5c5
+        opacity: 1
     &:active
-        background: #ffc5c5
+        opacity: 1
         transform: translate(4px, 4px)
         box-shadow: 0 3px 3px
 </style>
