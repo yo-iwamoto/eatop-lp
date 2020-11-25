@@ -76,16 +76,43 @@
       </div>
     </section>
     <section class="reviews">
-      <h2></h2>
-      <div class="review-wrapper">
+      <h2 class="reviews-title">参加者の声</h2>
+      <div class="reviews-wrapper">
         <div class="review">
-          
+          <img src="../assets/images/about/participant1.png" alt="参加者">
+          <Balloon bgColor="#c1e396">
+            <template #header>
+              <h4>若者との大事なつながり</h4>
+              <p>農家 60代</p>
+            </template>
+            <template #body>
+              <p class="comment">日本の学生や海外からの留学生に農作業体験をしてもらい、お礼に料理を振る舞っています。作業も楽になるし、<span>若者との接点もできて</span>、いいことばかりです。</p>
+            </template>
+          </Balloon>
+        </div>
+        <div class="review" id="reverse">
+          <img src="../assets/images/about/participant2.png" alt="参加者">
+          <Balloon bgColor="#ffc1ae" direction="true">
+            <template #header>
+              <h4>色んな料理が食べられる！</h4>
+              <p>大学生 20代</p>
+            </template>
+            <template #body>
+              <p class="comment">大人数でご飯を囲むので、餃子や鍋など、一人暮らしだとなかなか食べることがない料理を食べる機会ができます！なにより、<span>みんなで食べるご飯は美味しい！</span></p>
+            </template>
+          </Balloon>
         </div>
         <div class="review">
-
-        </div>
-        <div class="review">
-
+          <img src="../assets/images/about/participant3.png" alt="参加者">
+          <Balloon bgColor="#b5d2ff">
+            <template #header>
+              <h4>日本の文化が体験できる</h4>
+              <p>留学生 20代</p>
+            </template>
+            <template #body>
+              <p class="comment">イベントの中で日本人と、日本の食文化のことだけでなく、自分の国の料理についても話せる。<span>食文化以外の色々な体験</span>ができるのも嬉しい！</p>
+            </template>
+          </Balloon>
         </div>
       </div>
     </section>
@@ -96,12 +123,12 @@
 </template>
 
 <script>
-// import Balloon from '@/components/Balloon'
+import Balloon from '@/components/Balloon'
 
 export default {
-  // components: {
-  //   Balloon
-  // }
+  components: {
+    Balloon
+  }
 }
 </script>
 
@@ -254,9 +281,6 @@ export default {
     &.profile
       min-height: 320px
       max-height: 500px
-    
-    // .box-border
-    //   transform: rotate(2deg)
 
   .founder-container
     margin: 80px 0
@@ -270,9 +294,6 @@ export default {
     &.profile
       min-height: 270px
       max-height: 320px
-
-    // .box-border
-    //   transform: rotate(-2deg)
 
 @media (max-width: $breakpoint-md)
   .members
@@ -288,5 +309,32 @@ export default {
 
   .slider
     height: 600px
+
+.reviews
+  width: 95%
+  margin: 0 auto
+  max-width: 1000px
+
+  &-title
+    margin-bottom: 30px
+
+  &-wrapper
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin: 0 auto
+  
+    .review
+      max-height: 170px
+      width: 100%
+      margin: 15px 0
+      display: flex
+
+      &#reverse
+        flex-direction: row-reverse
+
+      img
+        height: 150px
+  
 
 </style>

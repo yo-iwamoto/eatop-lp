@@ -2,10 +2,9 @@
   <div :style="colorStyle" :class="{ reverse: direction }" class="wrapper">
     <div class="triangle"></div>
     <div class="flex">
-      <h4>{{ title }}</h4>
-      <p>{{ info }}</p>
+      <slot name="header"></slot>
     </div>
-    <slot></slot>
+    <slot name="body"></slot>
   </div>
 </template>
 
@@ -13,20 +12,12 @@
 export default {
   name: 'balloon',
   props: {
-    title: {
-      required: true,
-      default: ''
-    },
     bgColor: {
       required: true,
       default: '#555'
     },
     direction: {
       default: false
-    },
-    info: {
-      required: true,
-      default: ''
     }
   },
   computed: {
@@ -101,11 +92,7 @@ h4 {
 p {
   font-size: 15px;
   line-height: 1.5rem;
-  padding-right: 15px;
-}
-
-.comment {
-  padding: 15px;
+  padding: 10px 15px;
 }
 
 span {
@@ -125,7 +112,7 @@ span {
   h4 {
     font-size: 16px;
   }
-  #comment {
+  .comment {
     font-size: 15px;
   }
 }
