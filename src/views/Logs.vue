@@ -47,6 +47,7 @@ import Pin from '@/components/Pin'
 import Post from '@/components/Post'
 import Vue from 'vue'
 
+// declear to use modal-template
 Vue.component('modal', {
   template: '#modal-template'
 })
@@ -55,6 +56,7 @@ export default {
   name: 'logs',
   data () {
     return {
+      // id to determine the elements of modal
       postId: 'gurugura',
       showModal: false,
       heartActive: false,
@@ -211,17 +213,20 @@ export default {
     color: $gray
 
 .map
-  width: 100%
+  width: 90%
+  margin: 0 auto
   background: url(../assets/images/logs/map.png)
   background-position: center
   background-size: cover
   background-repeat: no-repeat
   position: relative
+  box-shadow: inset 0 0 5px 3px $beige
+
 
   &::before
     display: block
     content: ''
-    padding-top: 50%
+    padding-top: 56%
 
 #show-modal
   display: inline-block
@@ -236,7 +241,7 @@ export default {
     font-size: 1.3em
 
   &-img
-    height: 300px
+    width: 100%
 
   &-text
     text-align: left
@@ -248,6 +253,22 @@ export default {
 .icon-bar
   text-align: left
   border-bottom: 2px solid $gray
+
+  .fa-icon
+    font-size: 25px
+    margin: 0 5px
+
+  .heart
+    cursor: pointer
+    transition: transform .2s
+
+    &:active
+      transform: translateY(-8px)
+      transform-origin: center bottom
+      transition: transform .2s
+
+  .heart-active
+    color: $red
 
 @media (min-width: $breakpoint-lg)
   .map
