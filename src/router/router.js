@@ -5,6 +5,7 @@ import Top from '@/views/Top.vue'
 import About from '@/views/About'
 import Event from '@/views/Event'
 import Logs from '@/views/Logs'
+import Info from '@/views/Info'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/logs',
       name: 'logs',
       component: Logs
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component: Info
     },
     {
       path: '*',

@@ -30,14 +30,14 @@
           </div>
           <div class="footer-right-bottom">
             <nav>
-              <router-link to="" class="footer-link">コロナ対策について</router-link>
+              <router-link to="/info" class="footer-link">コロナ対策について</router-link>
               <router-link to="" class="footer-link">お問い合わせ</router-link>
               <router-link to="" class="footer-link">ENGLISH</router-link>
             </nav>
           </div>
         </div>
       </div>
-      <p class="copyright">Copyright © Eatop All rights reserved.</p>
+      <p class="copyright">Copyright © EATOP All rights reserved.</p>
     </div>
   </div>
 </template>
@@ -65,6 +65,10 @@ export default {
 #app
   background: url(./assets/images/top/background.jpg)
   background-size: contain
+
+@media (max-width: 570px)
+  #app
+    display: none
 
 .header-back
   height: 78px
@@ -185,9 +189,15 @@ export default {
         &:hover
           border-bottom: 1px solid black
 
-@media (max-width: $breakpoint-sm)
-  body
-    text-align: center
+@media (max-width: 680px)
+  .header
+
+    &-logo
+      height: 70px
+      margin-top: 5px
+
+    &-link
+      font-size: 13px!important
 
 @media (min-width: $breakpoint-lg)
   .footer-container

@@ -9,6 +9,17 @@
         </div>
       </div>
     </transition>
+    <div class="info-wrapper">
+      <div class="info-bar" @click="toInfo">
+        <div class="info-bar-left">
+          <font-awesome-icon icon="info-circle" class="info-icon"></font-awesome-icon>
+          <p>新型コロナウイルス感染症対策について</p>
+        </div>
+        <div class="info-bar-right">
+          <p>＞</p>
+        </div>
+      </div>
+    </div>
     <div class="sections-wrapper">
       <section class="top-about">
         <h2 class="top-about-title">共に作り、共に食べる</h2>
@@ -49,6 +60,9 @@ export default {
     },
     toLogs () {
       this.$router.push('logs')
+    },
+    toInfo () {
+      this.$router.push('info')
     }
   },
   components: {
@@ -82,7 +96,7 @@ export default {
     justify-content: space-around
 
     &-icon
-      height: 130px
+      height: 140px
       
     &-copy
       font-family: '851MkPOP'
@@ -92,12 +106,43 @@ export default {
     &-text
       color: $gray
 
+.info
+
+  &-wrapper
+    padding: 20px 0
+
+  &-bar
+    height: 40px
+    width: 70%
+    max-width: 700px
+    margin: 0 auto
+    padding: 0 15px
+    background: $white
+    border-radius: 6px
+    cursor: pointer
+    text-align: left
+    color: $red
+    display: flex
+    justify-content: space-between
+    align-items: center
+    transform: scale(1.2)
+    
+    p
+      display: inline-block
+      padding-left: 15px
+
+    &-right
+
+      p
+        font-weight: bold
+        color: rgba(0,0,0,.3)
+
 .sections-wrapper
   width: 90vw
   margin: 0 auto
 
 .top-about
-  padding: 60px 0
+  padding: 20px 0 60px
   
   &-title
     font-size: 30px
@@ -176,7 +221,5 @@ export default {
     &-container
     height: 35vw
     width: 60vw
-
-    &-contents
 
 </style>
