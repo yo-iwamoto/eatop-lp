@@ -32,7 +32,7 @@
             <nav>
               <router-link to="/info" class="footer-link">コロナ対策について</router-link>
               <p class="footer-link" @click="showModal = true">お問い合わせ</p>
-              <router-link to="" class="footer-link">ENGLISH</router-link>
+              <p class="footer-link" @click="alert">ENGLISH</p>
             </nav>
           </div>
         </div>
@@ -70,6 +70,9 @@ export default {
       } else {
         this.$router.push({ name: 'top' })
       }
+    },
+    alert () {
+      alert(`We haven't yet created English version. Wait for a while, please!`)
     }
   },
   components: { Post }
