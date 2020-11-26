@@ -31,19 +31,35 @@
           <div class="footer-right-bottom">
             <nav>
               <router-link to="/info" class="footer-link">コロナ対策について</router-link>
-              <router-link to="" class="footer-link">お問い合わせ</router-link>
+              <p class="footer-link" @click="showModal = true">お問い合わせ</p>
               <router-link to="" class="footer-link">ENGLISH</router-link>
             </nav>
           </div>
         </div>
       </div>
       <p class="copyright">Copyright © EATOP All rights reserved.</p>
+      <Post v-if="showModal" form="true" @close="showModal = false">
+        <template v-slot:title>お問い合わせフォーム</template>
+      </Post>
     </div>
   </div>
 </template>
 
 <script>
+import Post from '@/components/Post'
+import Vue from 'vue'
+
+// declear to use modal-template
+Vue.component('modal', {
+  template: '#modal-template'
+})
+
 export default {
+  data () {
+    return {
+      showModal: false
+    }
+  },
   methods: {
     beforeEnter () {
       this.$root.$emit('triggerScroll')
@@ -55,7 +71,8 @@ export default {
         this.$router.push({ name: 'top' })
       }
     }
-  }
+  },
+  components: { Post }
 }
 </script>
 
@@ -185,6 +202,7 @@ export default {
         text-decoration: none
         color: $gray
         margin: 0 15px
+        cursor: pointer
 
         &:hover
           border-bottom: 1px solid black

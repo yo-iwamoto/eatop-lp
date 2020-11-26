@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 
 import router from './router/router'
+import { init } from 'emailjs-com'
+init('user_1XQbtA2vNp8D6V1yCQQM6')
 
 // import fontawesome modules
 import { library } from '@fortawesome/fontawesome-svg-core'
