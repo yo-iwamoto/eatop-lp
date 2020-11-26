@@ -5,7 +5,7 @@
       <div class="mv-container">
         <div class="mv">
           <img src="../assets/images/top/icon.png" alt="EATOP" class="mv-icon">
-          <h1 class="mv-copy">食べるという、<br>コミュニケーション</h1>
+          <img class="mv-copy" src="../assets/images/top/copy.png" alt="食べるというコミュニケーション">
           <h2 class="mv-text">「まち」の食育プロジェクト<br>EATOP</h2>
         </div>
       </div>
@@ -110,9 +110,7 @@ export default {
       height: 140px
       
     &-copy
-      font-family: '851MkPOP'
-      font-size: 60px
-      text-shadow: 1px 1px $white
+      height: 25%
       
     &-text
       color: $gray
