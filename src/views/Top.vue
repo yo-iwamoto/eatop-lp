@@ -180,7 +180,9 @@ export default {
   background-repeat: no-repeat
   background-position: center center
   background-size: cover
-  border: 1px solid $gray
+  border: 1px solid transparent
+  box-shadow: 0 0 5px 2px rgba(0,0,0,.3)
+
 
   .map-contents
     display: flex
