@@ -116,8 +116,16 @@
         </div>
       </div>
     </section>
-    <section class="supporter">
-
+    <section class="supporters">
+      <h2 class="supporters-title">サポーター</h2>
+      <p class="supporters-subtitle">イベントの運営にあたり、様々な企業・団体にサポートいただいています</p>
+      <div class="supporters-list">
+        <div class="supporter" v-for="supporter in supporters" :key="supporter">
+          <a :href="supporter[1]" :key="supporter" target="_blank">
+            <img :src="require(`../assets/images/about/supporters/${supporter[0]}.png`)" :key="supporter">
+          </a>
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -128,6 +136,19 @@ import Balloon from '@/components/Balloon'
 export default {
   components: {
     Balloon
+  },
+  data () {
+    return {
+      supporters: [
+        ['opack', 'https://www.opack.jp/'],
+        ['ganko', 'https://itoshima-ganko.com/'],
+        ['mulberry', 'http://mulberry.fun/'],
+        ['macocchan', 'http://www.macocchan.com/'],
+        ['ngrowth', 'https://ngrowth.co.jp/'],
+        ['maizuru', 'http://fmaizuru.ed.jp/'],
+        ['itomonogatari', 'https://www.itomonogatari.com/']
+      ]
+    }
   }
 }
 </script>
@@ -336,5 +357,22 @@ export default {
       img
         height: 150px
   
+.supporters
+  width: 100%
+  margin: 50px auto
+  max-width: 1000px
+
+  &-subtitle
+    margin: 30px 0 20px
+    color: $gray
+
+  &-list
+    display: flex
+    justify-content: space-around
+    align-items: center
+    flex-wrap: wrap
+
+  .supporter
+    margin: 0 20px
 
 </style>
