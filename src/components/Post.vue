@@ -13,19 +13,16 @@
             </div>
             <div v-if="form">
               <form @submit.prevent="onSubmit">
-                <label for="first-name">姓：</label>
-                <input id="first-name" name="firstName" type="text"><br>
-                <label for="last-name">名：</label>
-                <input id="last-name" name="lastName" type="text"><br>
-                <label for="mail">メールアドレス：</label>
-                <input id="mail" name="mail" type="text"><br>
-                <label for="type">お問い合わせの種類</label>
-                <select id="type" name="type">
-                  <option v-for="type in contactTypes" :key="type">{{ type }}</option>
-                </select><br>
-                <label for="detail">お問い合わせ内容</label>
-                <textarea id="detail" name="detail" cols="30" rows="10"></textarea>
-                <input type="submit" value="送信" class="submit">
+                <v-app>
+                  <v-text-field class="input" label="姓" name="firstName" />
+                  <v-text-field class="input" label="名" name="lastName" />
+                  <v-text-field class="input" label="メールアドレス" name="mail" />
+                  <v-text-field class="input" label="お問い合わせ内容" name="detail"></v-text-field>
+                  <v-divider />
+                  <v-card-actions>
+                    <input type="submit" value="送信" id="submit">
+                  </v-card-actions>
+                </v-app>
               </form>
             </div>
           </div>
@@ -37,6 +34,7 @@
 
 <script>
 import emailjs from 'emailjs-com'
+import Vuetify from 'vuetify'
 
 export default {
   props: {
@@ -44,12 +42,14 @@ export default {
       default: false
     }
   },
+  vuetify: new Vuetify(),
   data () {
     return {
       contactTypes: [
         'イベント開催について',
         'その他EATOPについて'
-      ]
+      ],
+      success: ''
     }
   },
   methods: {
@@ -73,12 +73,13 @@ export default {
           console.log('FAILED...', error)
         }
       )
+      this.$emit('close')
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
 .modal-enter {
   opacity: 0;
 }
@@ -140,6 +141,18 @@ export default {
   padding: 10px 20px;
 }
 
+#submit {
+  box-shadow: 1px 1px 4px #555;
+  width: 60px;
+  height: 30px;
+  margin-left: auto;
+  border-radius: 10px;
+}
+
+.v-application--wrap {
+  min-height: 40vh!important;
+}
+
 .modal-default-button {
   cursor: pointer;
   float: right;
@@ -154,10 +167,5 @@ export default {
 
 .modal-default-button:hover {
   opacity: 0.8;
-}
-
-.submit {
-  height: 50px;
-  width: 100px;
 }
 </style>

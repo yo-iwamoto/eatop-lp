@@ -28,7 +28,7 @@
             <template v-slot:contents>
               <img :src="postObjects[postId].postImg" class="post-img">
               <div class="icon-bar">
-                <font-awesome-icon v-if="heartActive" class="fa-icon heart" :icon="['far', 'heart']" @click="heartActive = !heartActive"></font-awesome-icon>
+                <font-awesome-icon v-if="heartActive" class="fa-icon heart-usual" :icon="['far', 'heart']" @click="heartActive = !heartActive"></font-awesome-icon>
                 <font-awesome-icon v-else class="fa-icon heart heart-active" :icon="['fas', 'heart']" @click="heartActive = !heartActive"></font-awesome-icon>
                 <font-awesome-icon class="fa-icon" :icon="['far', 'comment']"></font-awesome-icon>
                 <font-awesome-icon class="fa-icon" :icon="['fas', 'paper-plane']"></font-awesome-icon>
@@ -258,17 +258,23 @@ export default {
     font-size: 25px
     margin: 0 5px
 
-  .heart
+  .heart-usual
     cursor: pointer
-    transition: transform .2s
+    transition: transform .1s
 
     &:active
       transform: translateY(-8px)
       transform-origin: center bottom
-      transition: transform .2s
+      transition: transform .1s
 
   .heart-active
     color: $red
+    transition: transform .1s
+
+    &:active
+      transform: translateY(-8px)
+      transform-origin: center bottom
+      transition: transform .1s
 
 @media (min-width: $breakpoint-lg)
   .map

@@ -13,10 +13,14 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/vue-fontawesome": "^2.0.0",
+    "@mdi/font": "^5.8.55",
+    "ajv": "^6.12.6",
     "core-js": "^3.6.5",
     "emailjs-com": "^2.6.4",
+    "material-design-icons-iconfont": "^6.1.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.4.9",
+    "vuetify": "^2.3.19"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
